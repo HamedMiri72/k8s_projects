@@ -22,3 +22,9 @@ spec:
         - "-listen=:8080"
         ports:
         - containerPort: 8080
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 8080
+          initialDelaySeconds: 25
+          periodSeconds: 5
