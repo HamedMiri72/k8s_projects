@@ -228,4 +228,4 @@ kubectl rollout undo deployment <name>         # roll back to previous ReplicaSe
 
 ## Architecture
 
-![Two-tier Kubernetes app architecture](ingress-to-pod/docs/fullstack-architecture.svg)
+![Two-tier Kubernetes app architecture](./docs/fullstack-architecture.svg)
