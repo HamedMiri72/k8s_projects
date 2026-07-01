@@ -1,0 +1,185 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="1500" viewBox="0 0 1100 1500" font-family="Poppins">
+  <rect width="1100" height="1500" fill="#FBF9F4"/>
+
+  <!-- title -->
+  <text x="550" y="62" text-anchor="middle" font-size="38" font-weight="700" fill="#2C2C2A">Two-Tier Kubernetes App</text>
+  <text x="550" y="98" text-anchor="middle" font-size="19" font-weight="400" fill="#7A7873">Frontend to Backend, fully config-driven — one request travels the whole stack</text>
+
+  <!-- ============ EXTERNAL USER ============ -->
+  <g>
+    <rect x="380" y="135" width="340" height="80" rx="18" fill="#E6F1FB" stroke="#378ADD" stroke-width="2.5"/>
+    <!-- user icon -->
+    <circle cx="428" cy="175" r="22" fill="#378ADD"/>
+    <circle cx="428" cy="168" r="7" fill="#fff"/>
+    <path d="M415 190 q13 -14 26 0" fill="#fff"/>
+    <text x="472" y="170" font-size="20" font-weight="600" fill="#0C447C">External user</text>
+    <text x="472" y="194" font-size="13.5" font-weight="400" fill="#185FA5">curl -H "Host: fullstack.local"</text>
+  </g>
+
+  <line x1="550" y1="215" x2="550" y2="255" stroke="#378ADD" stroke-width="3"/>
+  <polygon points="550,264 542,250 558,250" fill="#378ADD"/>
+
+  <!-- ============ INGRESS ============ -->
+  <g>
+    <rect x="330" y="265" width="440" height="92" rx="18" fill="#E6F1FB" stroke="#378ADD" stroke-width="2.5"/>
+    <!-- gate icon -->
+    <rect x="356" y="289" width="42" height="42" rx="10" fill="#378ADD"/>
+    <rect x="364" y="299" width="10" height="22" rx="2" fill="#fff"/>
+    <rect x="380" y="299" width="10" height="22" rx="2" fill="#fff"/>
+    <text x="416" y="300" font-size="21" font-weight="600" fill="#0C447C">Ingress + Controller</text>
+    <text x="416" y="324" font-size="13.5" font-weight="400" fill="#185FA5">Routes by Host header · resource = rules, controller = engine</text>
+    <text x="416" y="344" font-size="13.5" font-weight="400" fill="#185FA5">No controller = nothing happens · same-namespace only</text>
+  </g>
+
+  <line x1="550" y1="357" x2="550" y2="405" stroke="#378ADD" stroke-width="3"/>
+  <polygon points="550,414 542,400 558,400" fill="#378ADD"/>
+
+  <!-- ============ NAMESPACE BOUNDARY ============ -->
+  <rect x="55" y="420" width="990" height="1000" rx="24" fill="none" stroke="#B4B2A9" stroke-width="2.5" stroke-dasharray="10 8"/>
+  <rect x="80" y="405" width="250" height="32" rx="8" fill="#FBF9F4"/>
+  <!-- box icon -->
+  <path d="M92 411 l12 -5 l12 5 l-12 5 z" fill="#5F5E5A"/>
+  <path d="M92 411 v11 l12 5 v-11 z" fill="#8B8A83"/>
+  <path d="M116 411 v11 l-12 5 v-11 z" fill="#6E6D67"/>
+  <text x="126" y="427" font-size="16" font-weight="500" fill="#5F5E5A">namespace: fullstack</text>
+
+  <!-- ========== FRONTEND SERVICE ========== -->
+  <g>
+    <rect x="340" y="455" width="420" height="76" rx="16" fill="#EEEDFE" stroke="#7F77DD" stroke-width="2.5"/>
+    <!-- switch icon -->
+    <rect x="360" y="473" width="42" height="42" rx="11" fill="#7F77DD"/>
+    <circle cx="371" cy="485" r="4" fill="#fff"/><circle cx="391" cy="485" r="4" fill="#fff"/>
+    <circle cx="371" cy="503" r="4" fill="#fff"/><circle cx="391" cy="503" r="4" fill="#fff"/>
+    <path d="M371 485 h20 M371 503 h20 M371 485 v18 M391 485 v18" stroke="#fff" stroke-width="2" fill="none"/>
+    <text x="418" y="488" font-size="19" font-weight="600" fill="#26215C">frontend Service (ClusterIP)</text>
+    <text x="418" y="512" font-size="13.5" font-weight="400" fill="#534AB7">Stable name in front of pods · port 80 to 80 · matches label app=frontend</text>
+  </g>
+
+  <line x1="550" y1="531" x2="550" y2="567" stroke="#7F77DD" stroke-width="3"/>
+  <polygon points="550,576 542,562 558,562" fill="#7F77DD"/>
+
+  <!-- ========== FRONTEND DEPLOYMENT ========== -->
+  <g>
+    <rect x="150" y="580" width="800" height="200" rx="20" fill="#FDFCF9" stroke="#888780" stroke-width="2"/>
+    <!-- puzzle icon -->
+    <rect x="180" y="600" width="20" height="20" rx="4" fill="#888780"/>
+    <text x="212" y="616" font-size="19" font-weight="600" fill="#2C2C2A">frontend Deployment — nginx</text>
+    <text x="180" y="640" font-size="13.5" font-weight="400" fill="#7A7873">2 replicas · self-healing via ReplicaSet · readiness probe gates traffic</text>
+
+    <g>
+      <rect x="185" y="662" width="150" height="96" rx="14" fill="#EAF3DE" stroke="#639922" stroke-width="2"/>
+      <rect x="240" y="676" width="40" height="30" rx="4" fill="#639922"/>
+      <path d="M246 706 h28 l-6 8 h-16 z" fill="#639922"/>
+      <text x="260" y="732" text-anchor="middle" font-size="15" font-weight="600" fill="#173404">nginx pod</text>
+      <text x="260" y="749" text-anchor="middle" font-size="11.5" fill="#3B6D11">serves / + proxies /api</text>
+    </g>
+    <g>
+      <rect x="350" y="662" width="150" height="96" rx="14" fill="#EAF3DE" stroke="#639922" stroke-width="2"/>
+      <rect x="405" y="676" width="40" height="30" rx="4" fill="#639922"/>
+      <path d="M411 706 h28 l-6 8 h-16 z" fill="#639922"/>
+      <text x="425" y="732" text-anchor="middle" font-size="15" font-weight="600" fill="#173404">nginx pod</text>
+      <text x="425" y="749" text-anchor="middle" font-size="11.5" fill="#3B6D11">serves / + proxies /api</text>
+    </g>
+
+    <g>
+      <rect x="560" y="662" width="360" height="96" rx="14" fill="#E1F5EE" stroke="#1D9E75" stroke-width="2"/>
+      <!-- folder icon -->
+      <path d="M585 686 h14 l4 5 h16 v20 h-34 z" fill="#1D9E75"/>
+      <text x="632" y="694" font-size="16" font-weight="600" fill="#04342C">ConfigMap to nginx.conf</text>
+      <text x="632" y="715" font-size="12.5" fill="#0F6E56">Mounted as a FILE at /etc/nginx/conf.d/</text>
+      <text x="632" y="733" font-size="12.5" fill="#0F6E56">Volume-mount injection · drives nginx behaviour</text>
+      <text x="632" y="751" font-size="12.5" fill="#0F6E56">Tells nginx where to proxy /api</text>
+    </g>
+  </g>
+
+  <line x1="550" y1="780" x2="550" y2="820" stroke="#7F77DD" stroke-width="3"/>
+  <polygon points="550,829 542,815 558,815" fill="#7F77DD"/>
+  <rect x="595" y="784" width="335" height="30" rx="8" fill="#FBF3E0"/>
+  <text x="610" y="804" font-size="12.5" font-weight="500" fill="#854F0B">nginx proxies /api to "backend" via CoreDNS</text>
+
+  <!-- ========== BACKEND SERVICE ========== -->
+  <g>
+    <rect x="340" y="828" width="420" height="76" rx="16" fill="#EEEDFE" stroke="#7F77DD" stroke-width="2.5"/>
+    <rect x="360" y="846" width="42" height="42" rx="11" fill="#7F77DD"/>
+    <circle cx="371" cy="858" r="4" fill="#fff"/><circle cx="391" cy="858" r="4" fill="#fff"/>
+    <circle cx="371" cy="876" r="4" fill="#fff"/><circle cx="391" cy="876" r="4" fill="#fff"/>
+    <path d="M371 858 h20 M371 876 h20 M371 858 v18 M391 858 v18" stroke="#fff" stroke-width="2" fill="none"/>
+    <text x="418" y="861" font-size="19" font-weight="600" fill="#26215C">backend Service (ClusterIP)</text>
+    <text x="418" y="885" font-size="13.5" font-weight="400" fill="#534AB7">port 80 to targetPort 8080 · Endpoints = live Ready-pod IPs</text>
+  </g>
+
+  <line x1="550" y1="904" x2="550" y2="940" stroke="#7F77DD" stroke-width="3"/>
+  <polygon points="550,949 542,935 558,935" fill="#7F77DD"/>
+
+  <!-- ========== BACKEND DEPLOYMENT ========== -->
+  <g>
+    <rect x="100" y="953" width="900" height="270" rx="20" fill="#FDFCF9" stroke="#888780" stroke-width="2"/>
+    <rect x="130" y="973" width="20" height="20" rx="4" fill="#888780"/>
+    <text x="162" y="989" font-size="19" font-weight="600" fill="#2C2C2A">backend Deployment — http-echo</text>
+    <text x="130" y="1013" font-size="13.5" font-weight="400" fill="#7A7873">3 replicas · rolling updates (one pod at a time) · distroless image (no shell)</text>
+
+    <g>
+      <rect x="135" y="1035" width="140" height="96" rx="14" fill="#EAF3DE" stroke="#639922" stroke-width="2"/>
+      <circle cx="205" cy="1068" r="15" fill="none" stroke="#639922" stroke-width="4"/>
+      <path d="M205 1053 v6 M205 1077 v6 M190 1068 h6 M214 1068 h6" stroke="#639922" stroke-width="4"/>
+      <text x="205" y="1103" text-anchor="middle" font-size="14" font-weight="600" fill="#173404">echo pod</text>
+      <text x="205" y="1120" text-anchor="middle" font-size="11" fill="#3B6D11">returns text</text>
+    </g>
+    <g>
+      <rect x="288" y="1035" width="140" height="96" rx="14" fill="#EAF3DE" stroke="#639922" stroke-width="2"/>
+      <circle cx="358" cy="1068" r="15" fill="none" stroke="#639922" stroke-width="4"/>
+      <path d="M358 1053 v6 M358 1077 v6 M343 1068 h6 M367 1068 h6" stroke="#639922" stroke-width="4"/>
+      <text x="358" y="1103" text-anchor="middle" font-size="14" font-weight="600" fill="#173404">echo pod</text>
+      <text x="358" y="1120" text-anchor="middle" font-size="11" fill="#3B6D11">returns text</text>
+    </g>
+    <g>
+      <rect x="441" y="1035" width="140" height="96" rx="14" fill="#EAF3DE" stroke="#639922" stroke-width="2"/>
+      <circle cx="511" cy="1068" r="15" fill="none" stroke="#639922" stroke-width="4"/>
+      <path d="M511 1053 v6 M511 1077 v6 M496 1068 h6 M520 1068 h6" stroke="#639922" stroke-width="4"/>
+      <text x="511" y="1103" text-anchor="middle" font-size="14" font-weight="600" fill="#173404">echo pod</text>
+      <text x="511" y="1120" text-anchor="middle" font-size="11" fill="#3B6D11">returns text</text>
+    </g>
+
+    <g>
+      <rect x="610" y="1035" width="360" height="44" rx="12" fill="#E1F5EE" stroke="#1D9E75" stroke-width="2"/>
+      <path d="M628 1049 h11 l3 4 h13 v15 h-27 z" fill="#1D9E75"/>
+      <text x="672" y="1055" font-size="14.5" font-weight="600" fill="#04342C">ConfigMap to GREETING</text>
+      <text x="672" y="1072" font-size="11.5" fill="#0F6E56">env-var injection (static at pod start)</text>
+    </g>
+    <g>
+      <rect x="610" y="1087" width="360" height="44" rx="12" fill="#FAEEDA" stroke="#BA7517" stroke-width="2"/>
+      <!-- lock icon -->
+      <rect x="630" y="1102" width="20" height="15" rx="3" fill="#BA7517"/>
+      <path d="M634 1102 v-4 a6 6 0 0 1 12 0 v4" fill="none" stroke="#BA7517" stroke-width="3"/>
+      <text x="666" y="1107" font-size="14.5" font-weight="600" fill="#412402">Secret to API_TOKEN</text>
+      <text x="666" y="1124" font-size="11.5" fill="#854F0B">base64, NOT encrypted — decode = plain text</text>
+    </g>
+
+    <rect x="135" y="1150" width="835" height="54" rx="12" fill="#F1EFE8" stroke="#B4B2A9" stroke-width="1.5"/>
+    <text x="155" y="1174" font-size="14" font-weight="600" fill="#2C2C2A">Response text:</text>
+    <text x="268" y="1174" font-size="12.5" font-weight="400" fill="#5F5E5A" font-family="monospace">"Hello from the backend API (config-driven) | token=super-secret-token-12345"</text>
+    <text x="155" y="1193" font-size="12" fill="#7A7873">The greeting comes from the ConfigMap, the token from the Secret — proof both were injected.</text>
+  </g>
+
+  <!-- ============ LEGEND ============ -->
+  <text x="80" y="1272" font-size="18" font-weight="600" fill="#2C2C2A">Legend</text>
+  <g font-size="14" font-weight="400" fill="#5F5E5A">
+    <rect x="80" y="1287" width="22" height="22" rx="6" fill="#E6F1FB" stroke="#378ADD" stroke-width="2"/>
+    <text x="112" y="1303">Traffic path (external + services)</text>
+    <rect x="80" y="1319" width="22" height="22" rx="6" fill="#EEEDFE" stroke="#7F77DD" stroke-width="2"/>
+    <text x="112" y="1335">Service (stable name over pods)</text>
+    <rect x="80" y="1351" width="22" height="22" rx="6" fill="#EAF3DE" stroke="#639922" stroke-width="2"/>
+    <text x="112" y="1367">Workload pods</text>
+
+    <rect x="560" y="1287" width="22" height="22" rx="6" fill="#E1F5EE" stroke="#1D9E75" stroke-width="2"/>
+    <text x="592" y="1303">ConfigMap (non-secret config)</text>
+    <rect x="560" y="1319" width="22" height="22" rx="6" fill="#FAEEDA" stroke="#BA7517" stroke-width="2"/>
+    <text x="592" y="1335">Secret (sensitive — base64 only)</text>
+    <rect x="560" y="1351" width="22" height="22" rx="6" fill="none" stroke="#B4B2A9" stroke-width="2" stroke-dasharray="5 4"/>
+    <text x="592" y="1367">Namespace boundary</text>
+  </g>
+
+  <rect x="55" y="1400" width="990" height="62" rx="14" fill="#2C2C2A"/>
+  <text x="550" y="1428" text-anchor="middle" font-size="15" font-weight="600" fill="#FBF9F4">The full path in one request</text>
+  <text x="550" y="1451" text-anchor="middle" font-size="12.5" font-weight="400" fill="#D3D1C7">user to Ingress to frontend Service to nginx pod to CoreDNS to backend Service to echo pod to response</text>
+</svg>

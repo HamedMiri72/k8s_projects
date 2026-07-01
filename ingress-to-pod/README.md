@@ -225,3 +225,7 @@ kubectl rollout undo deployment <name>         # roll back to previous ReplicaSe
 - **Shell-less images** — use `curl` through a port-forward, `-o jsonpath` on the spec, or `kubectl debug` to inspect.
 - **Docker Desktop networking** — `port-forward` reliably bypasses the VM port-mapping quirk on macOS.
 
+
+## Architecture
+
+![Two-tier Kubernetes app architecture](ingress-to-pod/docs/fullstack-architecture.svg)
