@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  namespace: fullstack
+  labels:
+    app: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: backend
+        image: hashicorp/http-echo
+        args:
+        - "-text=$(GREETING) | token=$(API_TOKEN)"
+        - "-listen=:8080"
+        ports:
+        - containerPort: 8080
+        env:
+        - name: GREETING
+          valueFrom:
+            configMapKeyRef:
+              name: backend-config
+              key: GREETING
+        - name: API_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: backend-secret
+              key: API_TOKEN
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 5
