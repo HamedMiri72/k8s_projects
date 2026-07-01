@@ -216,7 +216,7 @@ kubectl rollout undo deployment <name>         # roll back to previous ReplicaSe
 
 ---
 
-## Key interview talking points from this project
+## Key caveat points from this project
 
 - **Config is decoupled from the image** — same image runs anywhere; the environment supplies config.
 - **Two ConfigMap injection styles** — env vars (static at Pod start) vs mounted files (can update live, good for config files).
@@ -225,9 +225,3 @@ kubectl rollout undo deployment <name>         # roll back to previous ReplicaSe
 - **Shell-less images** — use `curl` through a port-forward, `-o jsonpath` on the spec, or `kubectl debug` to inspect.
 - **Docker Desktop networking** — `port-forward` reliably bypasses the VM port-mapping quirk on macOS.
 
-## Concepts to revisit next
-
-- **NetworkPolicies** — restrict which Pods may talk to which (relevant for regulated environments).
-- **Liveness probes** — restart broken containers (completes the probe story alongside readiness).
-- **TLS on Ingress** — terminate HTTPS at the ingress layer (cert-manager + Let's Encrypt).
-- **Resource requests & limits** — CPU/memory guarantees and caps; OOM behavior.
