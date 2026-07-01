@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: frontend-config
+  namespace: fullstack
+data:
+  data:
+  default.conf: |
+    server {
+      listen 80;
+
+      location / {
+        return 200 "Frontend is up. Try /api to reach the backend.\n";
+        add_header Content-Type text/plain;
+      }
+
+      location /api {
+        proxy_pass http://backend.fullstack.svc.cluster.local:80/;
+      }
+    }
